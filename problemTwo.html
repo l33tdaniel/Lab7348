@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #container {
+            margin: 50px;
+        }
+
+        #colorPicker {
+            display: inline-block;
+        }
+
+        #borderWidth {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        #paragraph {
+            padding: 10px;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        #border {
+            border: 2px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Border and Background Color Changer</h1>
+        <label for="borderColorPicker">Enter Border Color (RGB):</label>
+        <input type="text" id="borderColorPicker" placeholder="e.g., 255, 0, 0">
+        <label for="backgroundColorPicker">Enter Background Color (RGB):</label>
+        <input type="text" id="backgroundColorPicker" placeholder="e.g., 0, 0, 255">
+        <label for="borderWidth">Border Width:</label>
+        <input type="range" id="borderWidth" min="0" max="10" step="1" value="2">
+        <div id="border">
+            <p id="paragraph">This is a paragraph with some dummy text.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get references to HTML elements
+        const borderColorPicker = document.getElementById("borderColorPicker");
+        const backgroundColorPicker = document.getElementById("backgroundColorPicker");
+        const borderWidth = document.getElementById("borderWidth");
+        const paragraph = document.getElementById("paragraph");
+        const border = document.getElementById("border");
+
+        // Function to update the border and background style
+        function updateStyle() {
+            const borderColor = borderColorPicker.value;
+            const backgroundColor = backgroundColorPicker.value;
+            const borderValue = borderWidth.value + "px";
+
+            border.style.borderColor = `rgb(${borderColor})`;
+            border.style.borderWidth = borderValue;
+            paragraph.style.backgroundColor = `rgb(${backgroundColor})`;
+        }
+
+        // Add event listeners for input changes
+        borderColorPicker.addEventListener("input", updateStyle);
+        backgroundColorPicker.addEventListener("input", updateStyle);
+        borderWidth.addEventListener("input", updateStyle);
+
+        // Initialize the style
+        updateStyle();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Verification</title>
+    <style>
+        body {
+            background-image: url('your-background-image.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Verification</h2>
+        <p>Enter your password two times to verify it:</p>
+        <input type="password" id="password1" placeholder="Enter your password" /><br>
+        <input type="password" id="password2" placeholder="Re-enter your password" /><br>
+        <button onclick="validatePasswords()">Verify Passwords</button>
+
+        <script>
+            function validatePasswords() {
+                var password1 = document.getElementById("password1").value;
+                var password2 = document.getElementById("password2").value;
+
+                if (password1.length < 8) {
+                    alert("The length of the first password is less than 8 characters!");
+                } else if (password2.length < 8) {
+                    alert("The length of the second password is less than 8 characters!");
+                } else if (password1 !== password2) {
+                    alert("The two passwords do not match!");
+                } else {
+                    alert("Passwords match! Everything is good.");
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
